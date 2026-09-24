@@ -83,11 +83,17 @@ progress[value]::-moz-progress-bar {
 #form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.25rem;
 }
 
 #question {
     text-align: center;
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 #primary-button {

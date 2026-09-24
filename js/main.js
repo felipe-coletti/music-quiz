@@ -3,33 +3,42 @@ const progressBar = document.getElementById('progress-bar')
 const form = document.getElementById('form')
 const question = document.getElementById('question')
 const options = document.getElementById('options')
+const primaryButton = document.getElementById("primary-button")
+const feedback = document.getElementById("feedback")
 
 let currentQuestionIndex = 0
+let questionChecked = false
 
 const questions = [
     {
-        question: 'Qual é a letra correspondente ao Dó?',
-        options: ['A', 'B', 'C', 'D'],
-        answer: 'C'
+        question: "Qual é a letra correspondente ao Dó?",
+        options: ["A", "B", "C", "D"],
+        answer: "C",
+        explanation: "O Dó corresponde à letra C na notação musical."
     },
     {
-        question: 'Qual nota é representada pela letra F?',
-        options: ['Dó', 'Ré', 'Mi', 'Fá'],
-        answer: 'Fá'
+        question: "Qual nota é representada pela letra F?",
+        options: ["Dó", "Ré", "Mi", "Fá"],
+        answer: "Fá",
+        explanation: "A letra F representa a nota Fá."
     }
 ]
 
 function showQuestion(questionData) {
     question.textContent = questionData.question
 
-    options.innerHTML = ''
+    options.innerHTML = ""
+    feedback.textContent = ""
+    primaryButton.textContent = "Verificar"
+
+    questionChecked = false
 
     questionData.options.forEach((option, index) => {
-        const label = document.createElement('label')
-        const input = document.createElement('input')
+        const label = document.createElement("label")
+        const input = document.createElement("input")
 
-        input.type = 'radio'
-        input.name = 'answer'
+        input.type = "radio"
+        input.name = "answer"
         input.value = option
         input.id = `option-${index}`
 
@@ -45,24 +54,48 @@ function showQuestion(questionData) {
     progressBar.value = currentQuestionIndex + 1
 }
 
-form.addEventListener('submit', (event) => {
+form.addEventListener("submit", (event) => {
     event.preventDefault()
-
-    const selectedAnswer = form.querySelector(
-        'input[name="answer"]:checked'
-    )
-
-    if (!selectedAnswer) {
-        return
-    }
 
     const currentQuestion = questions[currentQuestionIndex]
 
-    if (selectedAnswer.value === currentQuestion.answer) {
-        console.log('Resposta correta!')
-    } else {
-        console.log('Resposta incorreta!')
+    if (!questionChecked) {
+        const selectedAnswer = form.querySelector(
+            'input[name="answer"]:checked'
+        )
+
+        if (!selectedAnswer) {
+            feedback.textContent = "Selecione uma resposta."
+            return
+        }
+
+        const isCorrect =
+            selectedAnswer.value === currentQuestion.answer
+
+        if (isCorrect) {
+            feedback.textContent =
+                `Correto! ${currentQuestion.explanation}`
+        } else {
+            feedback.textContent =
+                `Incorreto! A resposta correta é ${currentQuestion.answer}. ` +
+                currentQuestion.explanation
+        }
+
+        questionChecked = true
+        primaryButton.textContent = "Próxima pergunta"
+
+        return
     }
+
+    currentQuestionIndex++
+
+    if (currentQuestionIndex >= questions.length) {
+        feedback.textContent = "Quiz concluído!"
+        primaryButton.disabled = true
+        return
+    }
+
+    showQuestion(questions[currentQuestionIndex])
 })
 
 showQuestion(questions[currentQuestionIndex])
