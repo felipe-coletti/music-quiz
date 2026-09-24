@@ -11,6 +11,7 @@ const feedback = document.getElementById("feedback")
 const questions = generateQuestions()
 
 let currentQuestionIndex = 0
+let correctAnswers = 0
 let questionChecked = false
 
 progressBar.max = questions.length
@@ -67,6 +68,8 @@ form.addEventListener("submit", (event) => {
             selectedAnswer.value === currentQuestion.answer
 
         if (isCorrect) {
+            correctAnswers++
+
             feedback.textContent =
                 `Correto! ${currentQuestion.explanation}`
         } else {
@@ -92,9 +95,20 @@ form.addEventListener("submit", (event) => {
     currentQuestionIndex++
 
     if (currentQuestionIndex >= questions.length) {
-        feedback.textContent = "Quiz concluído!"
-        primaryButton.textContent = "Quiz concluído"
-        primaryButton.disabled = true
+        const totalQuestions = questions.length
+
+        const percentage = Math.round(
+            (correctAnswers / totalQuestions) * 100
+        )
+
+        const params = new URLSearchParams({
+            correct: correctAnswers,
+            total: totalQuestions,
+            percentage: percentage
+        })
+
+        window.location.href = `result.html?${params}`
+
         return
     }
 
