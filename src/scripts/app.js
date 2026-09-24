@@ -5,7 +5,7 @@ const progressBar = document.getElementById('progress-bar')
 const form = document.getElementById('form')
 const question = document.getElementById('question')
 const options = document.getElementById('options')
-const primaryButton = document.getElementById("primary-button")
+const primaryButton = document.getElementsByClassName("primary-button")
 const feedback = document.getElementById("feedback")
 
 const questions = generateQuestions()
@@ -32,8 +32,8 @@ function showQuestion(questionData) {
         input.name = "answer"
         input.value = option
         input.id = `option-${index}`
-        input.className = "option"
 
+        label.className = "option"
         label.htmlFor = input.id
         label.append(input, ` ${option}`)
 
