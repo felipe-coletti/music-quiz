@@ -5,7 +5,7 @@ const progressBar = document.getElementById('progress-bar')
 const form = document.getElementById('form')
 const question = document.getElementById('question')
 const options = document.getElementById('options')
-const primaryButton = document.getElementsById("lesson-button")
+const primaryButton = document.getElementById("lesson-button")
 const feedback = document.getElementById("feedback")
 
 const questions = generateQuestions()
