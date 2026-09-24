@@ -21,6 +21,8 @@ function showQuestion(questionData) {
 
     options.innerHTML = ""
     feedback.textContent = ""
+    feedback.hidden = true
+
     primaryButton.textContent = "Verificar"
 
     questionChecked = false
@@ -97,14 +99,9 @@ form.addEventListener("submit", (event) => {
     if (currentQuestionIndex >= questions.length) {
         const totalQuestions = questions.length
 
-        const percentage = Math.round(
-            (correctAnswers / totalQuestions) * 100
-        )
-
         const params = new URLSearchParams({
             correct: correctAnswers,
-            total: totalQuestions,
-            percentage: percentage
+            total: totalQuestions
         })
 
         window.location.href = `result.html?${params}`
@@ -112,7 +109,6 @@ form.addEventListener("submit", (event) => {
         return
     }
 
-    feedback.hidden = true
     showQuestion(questions[currentQuestionIndex])
 })
 
