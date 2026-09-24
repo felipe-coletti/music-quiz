@@ -1,0 +1,137 @@
+:root {
+	--color-accent: #0072e3;
+	--color-border: #e4e4e4;
+	--color-shadow: #d9d9d9;
+	--color-surface: #fff;
+    --color-surface-hover: #f2f2f2;
+	--color-text-primary: #000;
+	--color-text-secondary: #585858;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+}
+
+#main {
+	align-items: center;
+	background-color: var(--color-surface);
+	display: flex;
+	justify-content: center;
+	min-height: 100vh;
+	padding: 1.5rem;
+}
+
+#container {
+	background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+	border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+	gap: 1.5rem;
+	padding: 1.5rem;
+	width: min(100%, 24rem);
+}
+
+#title-area {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title-medium {
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.title-small {
+    font-size: 1rem;
+}
+
+.title {
+    color: var(--color-text-primary);
+}
+
+.paragraph {
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+}
+
+progress[value] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: var(--color-surface-hover);
+    border: none;
+    border-radius: 10em;
+    width: 100%;
+    height: 8px;
+}
+
+progress[value]::-webkit-progress-bar {
+    background: var(--color-surface-hover);
+    border-radius: 10em;
+}
+
+progress[value]::-webkit-progress-value {
+    background: var(--color-accent);
+    border-radius: 10em;
+}
+
+progress[value]::-moz-progress-bar {
+    background: var(--color-accent);
+    border-radius: 10em;
+}   
+
+#form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+#options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.option {
+    align-items: center;
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    display: flex;
+    gap: 0.5rem;
+    padding-block: 0.5rem;
+    padding-inline: 0.75rem;
+}
+
+.primary-button {
+    background-color: var(--color-accent);
+    color: var(--color-surface);
+}
+
+.secondary-button {
+    background-color: transparent;
+    color: var(--color-text-primary);
+}
+
+.button {
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    padding-block: 0.75rem;
+    padding-inline: 1rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+#result {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+}
