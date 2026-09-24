@@ -24,6 +24,8 @@ const questions = [
     }
 ]
 
+progressBar.max = questions.length
+
 function showQuestion(questionData) {
     question.textContent = questionData.question
 
@@ -64,6 +66,8 @@ form.addEventListener("submit", (event) => {
             'input[name="answer"]:checked'
         )
 
+        feedback.hidden = false
+
         if (!selectedAnswer) {
             feedback.textContent = "Selecione uma resposta."
             return
@@ -91,10 +95,12 @@ form.addEventListener("submit", (event) => {
 
     if (currentQuestionIndex >= questions.length) {
         feedback.textContent = "Quiz concluído!"
+        primaryButton.textContent = "Quiz concluído"
         primaryButton.disabled = true
         return
     }
 
+    feedback.hidden = true
     showQuestion(questions[currentQuestionIndex])
 })
 
