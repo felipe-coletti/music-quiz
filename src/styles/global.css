@@ -41,7 +41,11 @@
     justify-content: space-between;
 }
 
-.primary-title {
+.title-medium {
+    font-size: 1.25rem;
+}
+
+.title-small {
     font-size: 1rem;
 }
 
@@ -96,12 +100,19 @@ progress[value]::-moz-progress-bar {
     gap: 0.5rem;
 }
 
-#primary-button {
+.option {
+    border: 1px solid var(--color-border);
+    border-radius: 0.75rem;
+    padding-block: 0.5rem;
+    padding-inline: 0.75rem;
+}
+
+.primary-button {
     background-color: var(--color-accent);
     color: var(--color-surface);
 }
 
-#secondary-button {
+.secondary-button {
     background-color: transparent;
     color: var(--color-text-primary);
 }
@@ -114,4 +125,6 @@ progress[value]::-moz-progress-bar {
     font-weight: bold;
     padding-block: 0.75rem;
     padding-inline: 1rem;
+    text-align: center;
+    text-decoration: none;
 }

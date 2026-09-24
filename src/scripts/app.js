@@ -32,6 +32,7 @@ function showQuestion(questionData) {
         input.name = "answer"
         input.value = option
         input.id = `option-${index}`
+        input.className = "option"
 
         label.htmlFor = input.id
         label.append(input, ` ${option}`)
