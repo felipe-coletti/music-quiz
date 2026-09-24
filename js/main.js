@@ -72,6 +72,14 @@ form.addEventListener("submit", (event) => {
                 currentQuestion.explanation
         }
 
+        const answerInputs = form.querySelectorAll(
+            'input[name="answer"]'
+        )
+
+        answerInputs.forEach((input) => {
+            input.disabled = true
+        })
+
         questionChecked = true
         primaryButton.textContent = "Próxima pergunta"
 
