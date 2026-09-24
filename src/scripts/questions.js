@@ -4,7 +4,7 @@ import {
     generateNextNoteQuestion,
     generatePreviousNoteQuestion,
     generateSequenceQuestion
-} from "./question-generator.js"
+} from "./questionGeneration.js"
 
 export const notes = [
     { name: "Dó", letter: "C" },
