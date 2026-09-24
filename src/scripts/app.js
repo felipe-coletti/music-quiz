@@ -1,4 +1,4 @@
-import { questions } from './questions.js'
+import { generateQuestions } from "./questions.js"
 
 const questionCounter = document.getElementById('question-counter')
 const progressBar = document.getElementById('progress-bar')
@@ -7,6 +7,8 @@ const question = document.getElementById('question')
 const options = document.getElementById('options')
 const primaryButton = document.getElementById("primary-button")
 const feedback = document.getElementById("feedback")
+
+const questions = generateQuestions()
 
 let currentQuestionIndex = 0
 let questionChecked = false
