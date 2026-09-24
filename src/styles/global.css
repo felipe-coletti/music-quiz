@@ -42,7 +42,8 @@
 }
 
 .title-medium {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 .title-small {
@@ -88,10 +89,6 @@ progress[value]::-moz-progress-bar {
     display: flex;
     flex-direction: column;
     gap: 1.25rem;
-}
-
-#question {
-    text-align: center;
 }
 
 #options {
